@@ -1,12 +1,10 @@
 [package]
-name = "main"
+name = "gui"
 version = "0.1.0"
-authors = ["JLer <472102489@qq.com>"]
+authors = ["kaiyong.xie <kaiyong.xie@geely.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-core = { path = "../core" }
-cli = { path = "../cli" }
-gui = { path = "../gui" }
+iced = "0.2"
