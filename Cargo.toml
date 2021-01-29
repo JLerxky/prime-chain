@@ -4,4 +4,5 @@ members = [
 	"core",
 	"utils",
 	"cli",
+	"gui",
 ]
