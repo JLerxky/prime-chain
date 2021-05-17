@@ -9,4 +9,3 @@ edition = "2018"
 [dependencies]
 core = { path = "../core" }
 cli = { path = "../cli" }
-gui = { path = "../gui" }

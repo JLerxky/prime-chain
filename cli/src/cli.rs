@@ -1,13 +1,13 @@
+use crate::command;
 use rustyline::error::ReadlineError;
 use rustyline::Editor;
-use crate::command;
 
 pub struct Cli;
 
 impl Cli {
     pub fn start() {
         let mut r1 = Editor::<()>::new();
-        if r1.load_history("command_history.txt").is_err() {
+        if r1.load_history("command_history.log").is_err() {
             println!("No previous history.");
         }
 
@@ -27,6 +27,7 @@ impl Cli {
                             cmd.execute(&params);
                         }
                         None => match params[0] {
+                            "new" => {}
                             "quit" | "q!" => break,
                             "help" | "h" => println!("Print help command"),
                             "" => continue,
@@ -36,23 +37,22 @@ impl Cli {
 
                     r1.add_history_entry(line.as_str());
                     println!("Line: {}", line);
-                },
+                }
                 Err(ReadlineError::Interrupted) => {
                     println!("CTRL-C");
-                    break
-                },
+                    break;
+                }
                 Err(ReadlineError::Eof) => {
                     println!("CTRL-D");
-                    break
-                },
+                    break;
+                }
                 Err(err) => {
                     println!("Error: {:?}", err);
-                    break
+                    break;
                 }
             }
         }
 
-        r1.save_history("history.txt").unwrap();
+        r1.save_history("command_history.log").unwrap();
     }
 }
-

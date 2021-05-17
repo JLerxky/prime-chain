@@ -1,3 +1,4 @@
 /target
-/prime_chain_db
-history.txt
+db_*
+*.log
+.DS_Store
